@@ -1,0 +1,27 @@
+#voice-note {
+	align-items: center;
+	gap: 8px;
+}
+select.mic-select {
+	min-height: 44px;
+	max-width: 170px;
+	padding: 0;
+	border: 0;
+	background: none;
+	color: inherit;
+	font: inherit;
+	text-overflow: ellipsis;
+}
+.call-wave {
+	flex-shrink: 0;
+	max-width: 100px;
+	image-rendering: pixelated;
+}
+.mic-settings {
+	width: 100%;
+}
+.mic-settings summary {
+	padding: 10px;
+	min-height: 44px;
+	cursor: pointer;
+}

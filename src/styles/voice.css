@@ -1,0 +1,58 @@
+.voice {
+	position: absolute;
+	z-index: 2;
+	pointer-events: none;
+}
+.eyebrow {
+	font-size: 11px;
+	letter-spacing: 0.6px;
+	color: var(--accent);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+}
+h1 {
+	font-weight: 500;
+	letter-spacing: -1px;
+}
+.voice p {
+	color: var(--muted);
+	line-height: 2;
+	margin: 0;
+}
+#reply {
+	font-weight: 500;
+	text-wrap: balance;
+	transition: opacity 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+#reply span {
+	opacity: 0;
+}
+#reply span.revealed {
+	opacity: 1;
+}
+#reply span.active {
+	color: var(--accent);
+	text-shadow: 0 0 20px #e8c48b30;
+}
+#reply.finished {
+	opacity: 0;
+}
+#thinking {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+#thinking i {
+	width: 6px;
+	height: 6px;
+	background: var(--accent);
+	animation: thinking 1.5s steps(3) infinite;
+}
+#thinking i:nth-child(2) {
+	animation-delay: 0.25s;
+}
+#thinking i:nth-child(3) {
+	animation-delay: 0.5s;
+}

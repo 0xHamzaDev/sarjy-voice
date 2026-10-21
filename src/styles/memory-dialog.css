@@ -1,0 +1,78 @@
+#memory-dialog {
+	width: 480px;
+	text-align: start;
+	padding: 24px;
+	max-height: calc(100svh - 40px);
+	overflow: auto;
+}
+#memory-dialog h2 {
+	font-size: 23px;
+}
+#memory-dialog p {
+	margin-top: 16px;
+}
+#memory-dialog button {
+	min-height: 44px;
+}
+#memory-list {
+	padding: 0;
+	margin: 16px 0;
+	list-style: none;
+}
+#memory-list li {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	border-bottom: 1px solid var(--line);
+	padding: 8px 0;
+}
+#memory-list .memory-content {
+	flex: 1;
+	min-width: 0;
+	text-align: start;
+	overflow-wrap: anywhere;
+}
+#memory-list button,
+#clear-memories,
+#clear-confirm button {
+	font-size: 13px;
+}
+#memory-list li > button:last-child {
+	flex-shrink: 0;
+	color: var(--muted);
+}
+#clear-confirm {
+	border-top: 1px solid var(--line);
+	margin-top: 16px;
+}
+#clear-confirm button {
+	margin-inline-end: 12px;
+}
+#memory-feedback {
+	min-height: 22px;
+}
+@media (max-width: 700px) {
+	.voice-controls {
+		gap: 6px;
+	}
+	#mic-hint {
+		font-size: 12px;
+	}
+	html[lang="en"] #mic-hint {
+		font-size: 16px;
+	}
+	#error-chip {
+		bottom: 200px;
+		font-size: 11px;
+	}
+	#memory-dialog {
+		padding: 18px;
+	}
+}
+@media (prefers-reduced-motion: reduce) {
+	.companion-sprite {
+		transform: none !important;
+		translate: none !important;
+		rotate: none !important;
+	}
+}

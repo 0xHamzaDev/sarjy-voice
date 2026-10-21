@@ -1,0 +1,61 @@
+.masthead {
+	position: absolute;
+	left: 44px;
+	right: 44px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	direction: ltr;
+	z-index: 4;
+}
+.wordmark {
+	color: var(--ink);
+	display: flex;
+	gap: 13px;
+	text-decoration: none;
+	align-items: center;
+	font: 32px / 1 var(--pixel);
+	letter-spacing: 3px;
+}
+.brand-star {
+	font: 36px var(--pixel);
+	color: var(--accent);
+}
+.brand-ar {
+	font: 13px var(--arabic);
+	letter-spacing: 0;
+	border-left: 1px solid var(--line);
+	padding-left: 13px;
+	margin-left: 12px;
+	vertical-align: middle;
+}
+.top-controls {
+	display: flex;
+	align-items: center;
+	gap: 22px;
+}
+.language {
+	font: 21px var(--pixel);
+	border: 1px solid var(--line);
+	min-width: 47px;
+}
+.scene-caption {
+	position: absolute;
+	left: 0;
+	right: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 12px;
+	font-size: 11px;
+	color: var(--muted);
+}
+.tiny-star {
+	font: 20px var(--pixel);
+	color: var(--accent);
+}
+.caption-line {
+	width: 20px;
+	height: 1px;
+	background: var(--line);
+}

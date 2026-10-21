@@ -1,0 +1,31 @@
+html[lang="en"] body {
+	font-family: var(--pixel);
+	font-size: 18px;
+}
+html[lang="en"] h1 {
+	letter-spacing: 0;
+}
+html[lang="en"] .voice p {
+	line-height: 1.5;
+}
+html[lang="en"] .eyebrow,
+html[lang="en"] .scene-caption {
+	font-size: 15px;
+	letter-spacing: 1px;
+}
+html[lang="en"] #mic-hint {
+	font-size: 18px;
+}
+html[lang="en"] .quiet {
+	font-size: 16px;
+}
+html[lang="en"] .memory-tooltip {
+	font-family: var(--pixel);
+	font-size: 18px;
+}
+html[lang="en"] dialog h2 {
+	font-size: 32px;
+}
+html[lang="en"] dialog p {
+	font-size: 17px;
+}

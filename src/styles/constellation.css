@@ -1,0 +1,155 @@
+#constellation {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+}
+#star-lines {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+}
+#star-lines line {
+	stroke: #e6c790;
+	stroke-width: 1;
+	vector-effect: non-scaling-stroke;
+	transition: opacity 200ms ease-out;
+}
+.memory-star {
+	position: absolute;
+	width: 44px;
+	height: 44px;
+	margin: -22px 0 0 -22px;
+	padding: 0;
+	border: 0;
+	background: none;
+	pointer-events: auto;
+	z-index: 3;
+	display: grid;
+	place-items: center;
+	--star-color: #efd4a6;
+	--star-size: 15px;
+}
+.memory-star[data-group="daily"] {
+	--star-color: #ccdcef;
+}
+.memory-star::before {
+	content: "";
+	position: absolute;
+	inset: 3px;
+	background: radial-gradient(circle, var(--star-color), transparent 68%);
+	opacity: 0.16;
+	transition: opacity 180ms ease-out;
+}
+.pixel-star {
+	position: relative;
+	display: block;
+	width: var(--star-size);
+	height: var(--star-size);
+	background: var(--star-color);
+	clip-path: polygon(
+		43% 0,
+		57% 0,
+		57% 28%,
+		72% 43%,
+		100% 43%,
+		100% 57%,
+		72% 57%,
+		57% 72%,
+		57% 100%,
+		43% 100%,
+		43% 72%,
+		28% 57%,
+		0 57%,
+		0 43%,
+		28% 43%,
+		43% 28%
+	);
+}
+.pixel-star::after {
+	content: "";
+	position: absolute;
+	width: 3px;
+	height: 3px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background: #fff5dc;
+}
+.memory-star:nth-child(even) {
+	--star-size: 11px;
+}
+.memory-star:is(:hover, :focus-visible, [aria-expanded="true"])::before {
+	opacity: 0.5;
+}
+.memory-star:is(:hover, :focus-visible, [aria-expanded="true"]) .pixel-star {
+	background: #fff5dc;
+}
+.memory-star:hover,
+.memory-star:focus-visible,
+.memory-star[aria-expanded="true"] {
+	z-index: 7;
+}
+#star-lines line[data-group="daily"] {
+	stroke: #bccfe8;
+}
+#constellation:has(
+		.memory-star[data-group="home"]:not(.dismissed):is(
+				:hover,
+				:focus-visible,
+				[aria-expanded="true"]
+			)
+	)
+	line[data-group="home"],
+#constellation:has(
+		.memory-star[data-group="daily"]:not(.dismissed):is(
+				:hover,
+				:focus-visible,
+				[aria-expanded="true"]
+			)
+	)
+	line[data-group="daily"] {
+	opacity: 0.65;
+}
+.memory-tooltip {
+	position: absolute;
+	top: 43px;
+	width: 185px;
+	padding: 13px 15px;
+	background: var(--panel);
+	border: 1px solid var(--line);
+	font: 13px / 1.7 var(--arabic);
+	text-align: start;
+	cursor: default;
+	color: var(--ink);
+	box-shadow: 4px 4px #11121b70;
+	visibility: hidden;
+	opacity: 0;
+	transform: translateY(4px);
+	transition:
+		opacity 160ms ease-out,
+		transform 160ms cubic-bezier(0.22, 1, 0.36, 1),
+		visibility 160ms;
+}
+.memory-tooltip small {
+	display: block;
+	color: var(--accent);
+	font: 14px var(--pixel);
+	margin-bottom: 5px;
+}
+.memory-star:hover .memory-tooltip,
+.memory-star:focus-visible .memory-tooltip,
+.memory-star[aria-expanded="true"] .memory-tooltip {
+	visibility: visible;
+	opacity: 1;
+	transform: translateY(0);
+}
+.memory-star.dismissed .memory-tooltip {
+	display: none;
+}
+.memory-star.new .pixel-star {
+	animation: star-burst 650ms cubic-bezier(0.22, 1, 0.36, 1) 780ms both;
+}
+.memory-star.referenced .pixel-star {
+	animation: reference 900ms ease-in-out 2;
+}

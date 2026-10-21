@@ -1,0 +1,29 @@
+#world[data-state="listening"] .companion-sprite {
+	translate: 0 -2px;
+	rotate: -1deg;
+}
+#world[data-state="thinking"] .companion-sprite {
+	background-position: 100% 95%;
+	rotate: 1deg;
+}
+.companion-sprite {
+	transition:
+		transform 110ms linear,
+		translate 160ms ease,
+		rotate 160ms ease;
+}
+#world[data-state="listening"] #companion:focus-visible {
+	outline-color: var(--accent);
+}
+#voice-note {
+	max-width: 230px;
+}
+#error-chip {
+	bottom: 216px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: min(530px, calc(100% - 32px));
+	font-size: 12px;
+	text-align: start;
+	z-index: 8;
+}

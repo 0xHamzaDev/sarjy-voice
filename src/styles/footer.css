@@ -1,0 +1,43 @@
+footer {
+	position: absolute;
+	bottom: 22px;
+	left: 34px;
+	right: 34px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	direction: ltr;
+	z-index: 5;
+}
+footer button {
+	font-size: 11px;
+}
+footer button > span:first-child {
+	font-size: 20px;
+	vertical-align: middle;
+	margin-right: 5px;
+}
+.footer-tools {
+	display: flex;
+	gap: 8px;
+}
+#dev-toggle {
+	font: 18px var(--pixel);
+}
+#memory-notice {
+	position: absolute;
+	color: var(--accent);
+}
+#error-chip {
+	position: absolute;
+	background: var(--panel);
+	border: 1px solid #c59889;
+	display: flex;
+	gap: 15px;
+	align-items: center;
+	padding: 8px 15px;
+}
+#error-chip button {
+	white-space: nowrap;
+}

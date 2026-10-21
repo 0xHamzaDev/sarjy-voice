@@ -1,0 +1,205 @@
+.masthead {
+	top: 25px;
+}
+#ambience-toggle {
+	font-size: 12px;
+}
+#ambience-toggle[aria-pressed="true"] {
+	color: var(--accent);
+}
+.scene-caption {
+	top: 90px;
+}
+#constellation {
+	top: 30px;
+	bottom: auto;
+	height: 52%;
+}
+#star-lines line {
+	opacity: 0.12;
+}
+.voice,
+.has-result .voice {
+	top: 27%;
+	left: 60%;
+	right: 6%;
+	text-align: start;
+	min-height: 190px;
+}
+html[dir="rtl"] .voice {
+	text-align: right;
+}
+h1 {
+	font-size: clamp(32px, 3.2vw, 48px);
+	margin: 12px 0 12px;
+	line-height: 1.5;
+}
+.voice p {
+	font-size: 16px;
+}
+html[lang="en"] .voice p {
+	font-size: 23px;
+}
+#reply,
+html[lang="en"] #reply {
+	font-size: clamp(25px, 2.7vw, 38px);
+	line-height: 1.65;
+	min-height: 150px;
+	margin-top: 14px;
+}
+#thinking {
+	justify-content: flex-start;
+	height: 90px;
+}
+.voice-controls,
+.has-result .voice-controls {
+	bottom: 64px;
+	width: min(420px, calc(100% - 40px));
+	min-width: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	padding: 12px;
+	border: 1px solid #847263;
+	background: #1b1a27;
+	box-shadow: 4px 4px #11121a60;
+	pointer-events: auto;
+}
+.voice-controls #microphone,
+.has-result .voice-controls #microphone {
+	width: auto;
+	height: auto;
+	min-height: 52px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	color: #2b2331;
+	flex-shrink: 0;
+	outline: 0;
+	box-shadow: none;
+	background: #e1bd87;
+	border-color: #e1bd87;
+}
+.voice-controls #microphone svg {
+	fill: #2b2331;
+	width: 20px;
+	height: 24px;
+	flex-shrink: 0;
+}
+.voice-controls :focus-visible,
+.voice-controls #microphone:focus-visible {
+	outline: 2px solid #e8c48b;
+	outline-offset: 4px;
+}
+.mic-copy {
+	width: 100%;
+	text-align: center;
+	min-width: 0;
+}
+#mic-hint {
+	display: inline-block;
+	margin: 0;
+	font-size: 15px;
+	min-height: 0;
+}
+.mic-copy #voice-note {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	color: #b4a7b0;
+	font-size: 13px;
+	margin-top: 5px;
+}
+html[lang="en"] .mic-copy #voice-note {
+	font-size: 16px;
+}
+
+#transcript,
+.has-result #transcript {
+	display: block;
+	position: absolute;
+	bottom: calc(100% + 14px);
+	left: 50%;
+	transform: translateX(-50%);
+	width: max-content;
+	max-width: 100%;
+	margin: 0;
+	padding: 4px 12px;
+	background: #1b1a27e6;
+	border: 1px solid #847263;
+}
+#transcript:empty {
+	display: none;
+}
+
+#weather-window {
+	top: 31%;
+	right: 6%;
+	width: min(370px, 34%);
+	padding: 0 22px 14px;
+	background: #242130;
+	color: #f2e5c9;
+	border: 1px solid #8f7967;
+	box-shadow: 5px 5px #11121a55;
+}
+.weather-heading,
+.weather-details,
+.weather-hours {
+	border-color: #645562;
+}
+.weather-heading,
+.weather-details dt,
+.weather-hours time,
+.weather-sample {
+	color: #c2b3bd;
+}
+#close-weather {
+	color: #e8c48b;
+}
+#weather-window :focus-visible {
+	outline-color: #e8c48b;
+}
+.weather-art {
+	width: 90px;
+	height: auto;
+}
+.temperature {
+	font-size: 68px;
+}
+.weather-current {
+	padding-block: 14px;
+}
+.has-result .voice {
+	grid-template-rows: 0 auto;
+	top: 16%;
+	min-height: 0;
+}
+.has-result #reply,
+html[lang="en"] .has-result #reply {
+	font-size: 23px;
+	line-height: 1.5;
+	min-height: 0;
+}
+#memory-notice {
+	left: 60%;
+	top: 48%;
+	width: 32%;
+	font-size: 13px;
+}
+#world[data-phase="day"] .voice-controls,
+.voice-controls .quiet {
+	color: #f2e5c9;
+}
+#world[data-phase="day"] footer .quiet {
+	color: #fff0d2;
+}
+@media (hover: hover) and (pointer: fine) {
+	#world[data-state="idle"] #companion:hover .companion-sprite {
+		animation: none;
+		background-position: 100% 0;
+	}
+	.voice-controls #microphone:hover {
+		background: #f0d7aa;
+	}
+}

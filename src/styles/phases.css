@@ -1,0 +1,79 @@
+#world[data-phase="day"] {
+	--ink: #2e2839;
+	--muted: #49414d;
+	--accent: #594160;
+	--panel: #f1dbb2;
+	--sky: #c3d1cb;
+	--line: #817171;
+}
+#world[data-phase="maghrib"] {
+	--ink: #fff0d2;
+	--muted: #f3d4bf;
+	--accent: #f3d1a0;
+	--panel: #623e54;
+	--sky: #775369;
+	--line: #c19786;
+}
+#world[data-phase="fajr"] {
+	--ink: #eee7d5;
+	--muted: #c8c8d9;
+	--accent: #efcfa4;
+	--panel: #34384f;
+	--sky: #383b57;
+	--line: #8990a6;
+}
+#world[data-phase="day"] #microphone {
+	background: #e9cc9e;
+	outline-color: #c4ab91;
+}
+#world[data-phase="day"] footer {
+	color: #fff0d2;
+}
+
+@keyframes thinking {
+	0%,
+	70%,
+	100% {
+		opacity: 0.2;
+		transform: translateY(0);
+	}
+	35% {
+		opacity: 1;
+		transform: translateY(-4px);
+	}
+}
+@keyframes star-burst {
+	0% {
+		opacity: 0.25;
+		transform: scale(0.8);
+	}
+	40% {
+		opacity: 1;
+		transform: scale(1.65);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+#star-lines .new-link {
+	animation: link-reveal 500ms ease-out 780ms backwards;
+}
+@keyframes link-reveal {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 0.2;
+	}
+}
+@keyframes reference {
+	0%,
+	100% {
+		opacity: 0.55;
+	}
+	50% {
+		opacity: 1;
+		filter: drop-shadow(0 0 8px #ffe2ad);
+	}
+}

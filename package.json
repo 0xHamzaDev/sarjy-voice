@@ -1,0 +1,47 @@
+{
+  "name": "sarjy",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.28.2",
+  "scripts": {
+    "dev": "pnpm run \"/^dev:/\"",
+    "dev:web": "node --env-file=.env node_modules/vite/bin/vite.js dev --port 3000",
+    "dev:voice": "tsx watch --env-file=.env server/main.ts",
+    "build": "NODE_ENV=production vite build",
+    "start": "NODE_ENV=production node --import tsx server/main.ts",
+    "test": "vitest run",
+    "test:live": "LIVE=1 vitest run live",
+    "migrate": "tsx --env-file=.env scripts/migrate.ts",
+    "db:generate": "drizzle-kit generate",
+    "bench:clips": "tsx --env-file=.env bench/make-clips.ts",
+    "bench": "tsx --env-file=.env bench/bench.ts",
+    "check": "biome check . && tsc --noEmit"
+  },
+  "dependencies": {
+    "@tanstack/react-router": "^1.170.39",
+    "@tanstack/react-start": "^1.168.58",
+    "drizzle-orm": "^0.45.3",
+    "express": "^5.2.1",
+    "onnxruntime-node": "^1.30.0",
+    "openai": "^7.23.0",
+    "postgres": "^3.4.9",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "ws": "^8.21.3",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.4.5",
+    "@types/express": "^5.0.6",
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@types/ws": "^8.18.1",
+    "@vitejs/plugin-react": "^6.0.1",
+    "drizzle-kit": "^0.31.11",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.2",
+    "vite": "^8.0.0",
+    "vitest": "^5.0.1"
+  }
+}

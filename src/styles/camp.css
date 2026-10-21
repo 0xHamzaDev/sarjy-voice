@@ -1,0 +1,215 @@
+#camp-props {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	z-index: 1;
+}
+#companion {
+	position: absolute;
+	left: 27%;
+	bottom: 20%;
+	width: clamp(280px, 30vw, 430px);
+	aspect-ratio: 1;
+	pointer-events: auto;
+	z-index: 1;
+	background: none;
+	border: 0;
+	padding: 0;
+	transform-origin: bottom center;
+	transition: transform 250ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+#companion:focus-visible {
+	outline-offset: -14px;
+}
+.companion-sprite {
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: url("/assets/saudi-host-poses-v2.png") 0 0 / 200% 200% no-repeat;
+	clip-path: inset(7% 0 0);
+	image-rendering: pixelated;
+	transform-origin: 50% 95%;
+}
+.host-name {
+	position: absolute;
+	top: var(--host-name-top, 1%);
+	left: 0;
+	right: 0;
+	font-size: 12px;
+	color: var(--accent);
+	letter-spacing: 1px;
+	text-shadow: 0 1px #151525;
+	pointer-events: none;
+	opacity: 0;
+	translate: var(--host-name-x, 0) 4px;
+	transition:
+		opacity 150ms ease-out,
+		translate 150ms ease-out;
+}
+#companion:hover .host-name,
+#companion:focus-visible .host-name {
+	opacity: 1;
+	translate: var(--host-name-x, 0) 0;
+}
+#world:not([data-entrance="seated"]) .host-name {
+	--host-name-x: -47.6%;
+	--host-name-top: -24%;
+}
+.dallah-prop {
+	position: absolute;
+	left: 75%;
+	bottom: -4%;
+	width: 40%;
+	aspect-ratio: 1;
+	background: url("/assets/saudi-coffee-set-v2.png") center / contain no-repeat;
+	image-rendering: pixelated;
+	pointer-events: none;
+}
+.dallah-prop::before {
+	content: "";
+	position: absolute;
+	left: 10%;
+	right: 10%;
+	bottom: 3%;
+	height: 8%;
+	background: #15152580;
+	clip-path: polygon(10% 0, 90% 0, 100% 50%, 90% 100%, 10% 100%, 0 50%);
+	z-index: -1;
+}
+#falcon-prop {
+	position: absolute;
+	left: 17%;
+	bottom: 20%;
+	width: 145px;
+	aspect-ratio: 1;
+	background: url("/assets/falcon-poses.png") 0 0 / 300% 100% no-repeat;
+	image-rendering: pixelated;
+	pointer-events: none;
+	z-index: 1;
+}
+#world[data-state="listening"] .companion-sprite {
+	background-position: 100% 0;
+}
+#world[data-state="memory-learned"] .companion-sprite {
+	background-position: 0 95%;
+}
+#world[data-state="speaking"] .companion-sprite {
+	background-image: url("/assets/saudi-host-speaking-v1.png");
+	background-position: 0 0;
+	animation: speaking-hands 3.8s step-end infinite;
+}
+#world[data-state="speaking"][data-speaking-pose="coffee"] .companion-sprite {
+	background-position-y: 95%;
+}
+@keyframes speaking-hands {
+	0%,
+	64%,
+	100% {
+		background-position-x: 0;
+	}
+	24%,
+	52% {
+		background-position-x: 100%;
+	}
+}
+
+footer {
+	text-shadow:
+		1px 1px #151525,
+		-1px -1px #151525;
+}
+
+#companion::before,
+#falcon-prop::before {
+	content: "";
+	position: absolute;
+	left: 10%;
+	right: 8%;
+	bottom: 2%;
+	height: 9%;
+	background: #15152580;
+	clip-path: polygon(8% 0, 88% 0, 100% 45%, 90% 100%, 9% 100%, 0 50%);
+	z-index: -1;
+}
+.companion-sprite,
+.dallah-prop,
+#falcon-prop {
+	filter: brightness(0.82) saturate(0.78);
+}
+#world[data-phase="day"] .companion-sprite,
+#world[data-phase="day"] .dallah-prop,
+#world[data-phase="day"] #falcon-prop {
+	filter: none;
+}
+#world[data-phase="maghrib"] .companion-sprite,
+#world[data-phase="maghrib"] .dallah-prop,
+#world[data-phase="maghrib"] #falcon-prop {
+	filter: sepia(0.12) saturate(0.85);
+}
+.voice {
+	display: grid;
+	grid-template-rows: 22px auto;
+}
+#idle-message,
+#reply,
+#thinking {
+	grid-area: 2 / 1;
+}
+#idle-message,
+#thinking {
+	animation: conversation-appear 180ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+#reply span {
+	transition:
+		opacity 120ms linear,
+		color 120ms linear;
+}
+@keyframes conversation-appear {
+	from {
+		opacity: 0;
+		transform: translateY(4px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+#world[data-state="idle"] .companion-sprite {
+	animation:
+		host-blink 7.3s step-end infinite,
+		host-breathe 4.8s ease-in-out infinite;
+}
+@keyframes host-blink {
+	0%,
+	97%,
+	100% {
+		background-position: 0 0;
+	}
+	98% {
+		background-position: 100% 95%;
+	}
+}
+#world[data-phase="day"] .memory-star {
+	--star-color: #68556b;
+}
+#world[data-phase="day"] .memory-star::before {
+	opacity: 0;
+}
+#world[data-phase="day"] #star-lines line {
+	stroke: #68556b;
+}
+
+.memory-star:focus-visible {
+	outline-offset: -7px;
+}
+
+@keyframes host-breathe {
+	0%,
+	100% {
+		transform: scaleY(1);
+	}
+	50% {
+		transform: scaleY(1.006);
+	}
+}

@@ -1,0 +1,187 @@
+@media (max-width: 1049px) and (min-width: 701px) {
+	#companion {
+		left: 16%;
+		width: 320px;
+	}
+	#falcon-prop {
+		left: 3%;
+		width: 120px;
+	}
+	.voice,
+	.has-result .voice {
+		left: 59%;
+		right: 4%;
+		top: 24%;
+	}
+	.has-result .voice {
+		top: 12%;
+	}
+	#weather-window {
+		right: 4%;
+		width: 36%;
+		top: 27%;
+		padding-inline: 16px;
+	}
+	.weather-art {
+		width: 70px;
+	}
+	h1 {
+		font-size: 32px;
+	}
+}
+@media (max-width: 700px) {
+	.masthead {
+		top: 18px;
+		left: 18px;
+		right: 18px;
+	}
+	.top-controls {
+		gap: 8px;
+	}
+	#ambience-toggle {
+		font-size: 11px;
+		padding: 6px;
+	}
+	.scene-caption {
+		top: 85px;
+	}
+	#constellation {
+		top: 70px;
+		height: 30%;
+	}
+	#companion {
+		left: 4%;
+		bottom: 19%;
+		width: 230px;
+		transform-origin: bottom left;
+	}
+	#falcon-prop {
+		left: auto;
+		right: 4%;
+		bottom: 23%;
+		width: 95px;
+	}
+	.host-name {
+		font-size: 11px;
+	}
+	#world:not([data-entrance="seated"]) .host-name {
+		--host-name-x: -19.6%;
+	}
+	.voice {
+		left: 8%;
+		right: 8%;
+		top: 26%;
+		text-align: center;
+		min-height: 150px;
+	}
+	html[dir="rtl"] .voice {
+		text-align: center;
+	}
+	h1 {
+		font-size: 33px;
+		margin: 8px 0;
+	}
+	.voice p {
+		font-size: 13px;
+	}
+	html[lang="en"] .voice p {
+		font-size: 21px;
+	}
+	#reply,
+	html[lang="en"] #reply {
+		font-size: 27px;
+		line-height: 1.5;
+		margin-top: 12px;
+		min-height: 105px;
+	}
+	#thinking {
+		justify-content: center;
+	}
+	.voice-controls,
+	.has-result .voice-controls {
+		width: calc(100% - 32px);
+		bottom: 62px;
+		padding: 10px;
+		gap: 10px;
+	}
+
+	.mic-copy #voice-note {
+		font-size: 11px;
+	}
+	#weather-window {
+		left: 20px;
+		right: 20px;
+		width: auto;
+		top: 27%;
+		padding: 0 18px 10px;
+	}
+	.weather-current {
+		padding-block: 8px;
+	}
+	.weather-art {
+		width: 80px;
+	}
+	.temperature {
+		font-size: 58px;
+	}
+	.weather-details {
+		padding-bottom: 8px;
+	}
+	.weather-hours {
+		padding-block: 8px;
+	}
+	.weather-sample {
+		margin-block: 8px 0;
+	}
+	.has-result .voice {
+		top: 15%;
+		left: 8%;
+		right: 8%;
+	}
+	.has-result #reply,
+	html[lang="en"] .has-result #reply {
+		font-size: 18px;
+		line-height: 1.4;
+	}
+	.has-result #companion {
+		transform: scale(0.55);
+	}
+	#memory-notice {
+		left: 10%;
+		top: 42%;
+		width: 80%;
+		text-align: center;
+		font-size: 11px;
+	}
+}
+@media (max-width: 700px) and (max-height: 740px) {
+	.weather-hours {
+		display: none;
+	}
+	#companion {
+		width: 180px;
+		bottom: 23%;
+	}
+	#falcon-prop {
+		width: 72px;
+		bottom: 24%;
+	}
+	.voice {
+		top: 23%;
+	}
+	h1 {
+		font-size: 28px;
+	}
+	#weather-window {
+		top: 21%;
+	}
+	.has-result .voice {
+		top: 10%;
+	}
+	.has-result #companion {
+		transform: scale(0.5);
+	}
+	.has-result .scene-caption {
+		display: none;
+	}
+}

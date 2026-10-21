@@ -1,0 +1,51 @@
+.host-arrival {
+	--arrival-x: -34%;
+	position: absolute;
+	width: 140%;
+	height: 140%;
+	left: -20%;
+	bottom: -2%;
+	background: url("/assets/saudi-host-entrance-v2.png") 3.076% 1.953% / 300% 200% no-repeat;
+	image-rendering: pixelated;
+	transform-origin: 50% 96%;
+	transform: translate(var(--arrival-x), -2%) scale(0.82);
+	filter: brightness(0.82) saturate(0.78);
+}
+.host-arrival::after {
+	content: "";
+	position: absolute;
+	left: 26%;
+	right: 24%;
+	bottom: 2%;
+	height: 4%;
+	background: #15152580;
+	clip-path: polygon(12% 0, 88% 0, 100% 40%, 88% 100%, 12% 100%, 0 40%);
+	z-index: -1;
+}
+#world[data-phase="day"] .host-arrival {
+	filter: none;
+}
+#world[data-phase="maghrib"] .host-arrival {
+	filter: sepia(0.12) saturate(0.9);
+}
+#world:not([data-entrance="seated"]) .companion-sprite,
+#world:not([data-entrance="seated"]) #companion::before {
+	visibility: hidden;
+}
+#world[data-entrance="seated"] .host-arrival {
+	visibility: hidden;
+}
+@media (max-width: 700px) {
+	.host-arrival {
+		--arrival-x: -14%;
+	}
+}
+@media (prefers-reduced-motion: reduce) {
+	#world .host-arrival {
+		visibility: hidden;
+	}
+	#world .companion-sprite,
+	#world #companion::before {
+		visibility: visible;
+	}
+}

@@ -1,0 +1,99 @@
+.panel {
+	position: absolute;
+	bottom: 82px;
+	right: 38px;
+	width: 300px;
+	padding: 21px;
+	background: var(--panel);
+	border: 1px solid var(--line);
+	box-shadow: 5px 5px #10101880;
+	z-index: 10;
+	max-height: calc(100svh - 120px);
+	overflow: auto;
+}
+.panel-heading {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 15px;
+}
+.panel h2 {
+	font-size: 16px;
+	font-weight: 500;
+	margin: 0;
+}
+.close {
+	font: 25px var(--pixel);
+	padding: 0 6px;
+}
+.panel p {
+	font-size: 11px;
+	line-height: 1.8;
+	color: var(--muted);
+	margin: 5px 0 19px;
+}
+.panel label,
+.panel .panel-label {
+	display: block;
+	font-size: 11px;
+	color: var(--muted);
+	margin: 15px 0 7px;
+}
+.panel select {
+	width: 100%;
+	font-size: 12px;
+}
+.state-buttons {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 7px;
+}
+.state-buttons button {
+	font-size: 11px;
+	padding: 7px;
+}
+.state-buttons button[aria-pressed="true"] {
+	border-color: var(--accent);
+	color: var(--accent);
+}
+#new-memory,
+#replay {
+	width: 100%;
+	font-size: 12px;
+	margin-top: 10px;
+}
+.prayer-times {
+	font: 14px / 1.5 var(--pixel);
+	color: var(--muted);
+	margin-top: 16px;
+}
+#latency-panel {
+	right: 82px;
+	width: 330px;
+}
+.waterfall-row {
+	display: grid;
+	grid-template-columns: 90px 1fr 52px;
+	align-items: center;
+	gap: 10px;
+	margin: 14px 0;
+	font: 16px var(--pixel);
+	direction: ltr;
+}
+.waterfall-track {
+	height: 6px;
+	background: #ffffff0a;
+}
+.waterfall-bar {
+	height: 6px;
+	background: var(--accent);
+	min-width: 2px;
+}
+.total {
+	display: flex;
+	justify-content: space-between;
+	border-top: 1px solid var(--line);
+	padding-top: 16px;
+	font: 18px var(--pixel);
+	direction: ltr;
+}

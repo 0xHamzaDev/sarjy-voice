@@ -1,0 +1,76 @@
+dialog {
+	color: var(--ink);
+	background: var(--panel);
+	border: 1px solid var(--line);
+	box-shadow: 7px 7px #101018;
+	max-width: calc(100vw - 40px);
+	width: 410px;
+	padding: 30px 38px;
+	text-align: center;
+}
+dialog::backdrop {
+	background: #0a0b1666;
+}
+dialog form {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+.welcome-star {
+	color: var(--accent);
+	font: 40px var(--pixel);
+}
+dialog .eyebrow {
+	font: 14px var(--pixel);
+	letter-spacing: 1px;
+}
+dialog h2 {
+	font-size: 27px;
+	font-weight: 500;
+	margin: 6px 0 0;
+}
+dialog p {
+	font-size: 12px;
+	line-height: 1.8;
+	color: var(--muted);
+	margin: 0 0 5px;
+}
+dialog label {
+	text-align: start;
+	font-size: 12px;
+}
+dialog input {
+	text-align: start;
+	width: 100%;
+}
+#welcome .mic-select {
+	width: 100%;
+	max-width: none;
+	padding: 11px 13px;
+	border: 1px solid var(--line);
+	background: var(--sky);
+}
+.enter {
+	background: var(--accent);
+	border-color: var(--accent);
+	color: #241e2d;
+}
+button.enter:hover {
+	background: #f2dab0;
+	color: #241e2d;
+}
+.dialog-note {
+	font-size: 10px;
+	color: var(--muted);
+}
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}

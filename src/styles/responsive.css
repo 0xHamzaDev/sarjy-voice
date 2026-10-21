@@ -1,0 +1,60 @@
+@media (max-width: 700px) {
+	#world {
+		min-height: 640px;
+	}
+	.wordmark {
+		font-size: 27px;
+	}
+	.brand-ar {
+		display: none;
+	}
+	.scene-caption {
+		font-size: 10px;
+		gap: 9px;
+	}
+	footer {
+		left: 12px;
+		right: 12px;
+		bottom: 15px;
+	}
+	.footer-tools {
+		gap: 0;
+	}
+	.memory-tooltip {
+		width: 160px;
+	}
+	.memory-star:nth-child(-n + 3) .memory-tooltip {
+		left: 10px;
+	}
+	.memory-star:nth-child(n + 4) .memory-tooltip {
+		right: 10px;
+	}
+	.panel,
+	#latency-panel {
+		right: 16px;
+		bottom: 74px;
+		width: min(330px, calc(100vw - 32px));
+	}
+	#error-chip {
+		padding: 5px 10px;
+		gap: 8px;
+	}
+	html[lang="en"] .scene-caption {
+		font-size: 13px;
+	}
+}
+@media (max-height: 710px) and (min-width: 701px) {
+	#world {
+		min-height: 620px;
+	}
+}
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*:before,
+	*:after {
+		animation: none !important;
+		transition: none !important;
+		scroll-behavior: auto !important;
+	}
+}
+

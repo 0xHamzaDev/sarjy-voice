@@ -1,0 +1,248 @@
+import type { ErrorCode, Lang } from "@shared/protocol";
+
+const STRINGS = {
+	weatherTitle: ["الطقس تحت هالسماء", "Under this sky"],
+	weatherLive: ["طقس مباشر من Open-Meteo.", "Live weather from Open-Meteo."],
+	feelsLike: ["المحسوسة", "Feels like"],
+	wind: ["الرياح", "Wind"],
+	humidity: ["الرطوبة", "Humidity"],
+	windUnit: ["كم/س", "km/h"],
+	closeTool: ["إغلاق النافذة", "Close window"],
+	prayerTitle: ["مواقيت الصلاة", "Prayer times"],
+	prayerLive: ["مواقيت من Aladhan.", "Prayer times from Aladhan."],
+	prayerFajr: ["الفجر", "Fajr"],
+	prayerSunrise: ["الشروق", "Sunrise"],
+	prayerDhuhr: ["الظهر", "Dhuhr"],
+	prayerAsr: ["العصر", "Asr"],
+	prayerMaghrib: ["المغرب", "Maghrib"],
+	prayerIsha: ["العشاء", "Isha"],
+	airQuality: ["جودة الهواء", "Air quality"],
+	dust: ["الغبار", "Dust"],
+	aqiGood: ["ممتازة", "Good"],
+	aqiModerate: ["مقبولة", "Moderate"],
+	aqiSensitive: ["غير صحية للحساسية", "Unhealthy for sensitive groups"],
+	aqiUnhealthy: ["غير صحية", "Unhealthy"],
+	aqiVeryUnhealthy: ["سيئة جداً", "Very unhealthy"],
+	aqiHazardous: ["خطرة", "Hazardous"],
+	currencyTitle: ["تحويل العملات", "Currency"],
+	exchangeRate: ["سعر الصرف", "Rate"],
+	ratesUpdated: ["آخر تحديث", "Updated"],
+	currencyLive: [
+		"أسعار مباشرة من ExchangeRate-API.",
+		"Live rates from ExchangeRate-API.",
+	],
+	qiblaTitle: ["اتجاه القبلة", "Qibla direction"],
+	qiblaDistance: ["المسافة إلى مكة", "Distance to Makkah"],
+	qiblaBearing: ["الاتجاه من الشمال", "Bearing from north"],
+	qiblaNote: [
+		"وجّه أعلى جوالك نحو الشمال.",
+		"Point the top of your phone north.",
+	],
+	kilometers: ["كم", "km"],
+	dirN: ["شمال", "north"],
+	dirNE: ["شمال شرق", "northeast"],
+	dirE: ["شرق", "east"],
+	dirSE: ["جنوب شرق", "southeast"],
+	dirS: ["جنوب", "south"],
+	dirSW: ["جنوب غرب", "southwest"],
+	dirW: ["غرب", "west"],
+	dirNW: ["شمال غرب", "northwest"],
+	skyOf: ["سماء {city}", "{city} SKY"],
+	sky: ["السماء", "THE SKY"],
+	night: ["بعد العشاء", "AFTER ISHA"],
+	fajr: ["الفجر", "FAJR"],
+	day: ["النهار", "DAYLIGHT"],
+	maghrib: ["المغرب", "MAGHRIB"],
+	invitation: ["خذ راحتك. أنا معك.", "Make yourself at home. I’m here."],
+	hostName: ["سرجي", "SARJY"],
+	home: ["سرجي، الصفحة الرئيسية", "Sarjy home"],
+	demoNote: ["عرض محاكاة · بدون ميكروفون", "Scene preview · microphone off"],
+	interrupt: ["قاطعني وتكلّم", "Interrupt & speak"],
+	yourMemories: ["ذكرياتك", "Your memories"],
+	close: ["إغلاق", "Close"],
+	forget: ["انسَها", "Forget"],
+	forgot: ["حُذفت الذكرى.", "Memory deleted."],
+	forgetFailed: [
+		"ما قدرت أحذفها، جرّب مرة ثانية.",
+		"Couldn't delete that, try again.",
+	],
+	clearMemories: ["احذف كل الذكريات", "Delete all memories"],
+	clearConfirm: ["أحذف كل ذكرياتك المحفوظة؟", "Delete every saved memory?"],
+	confirmClear: ["نعم، احذفها", "Yes, delete them"],
+	cancel: ["تراجع", "Cancel"],
+	cleared: ["حُذفت كل ذكرياتك.", "All memories deleted."],
+	memoryEmpty: [
+		"السماء لك. قل: تذكّر أن مشروبي المفضل القهوة.",
+		"This sky is yours. Say: remember that my favorite drink is coffee.",
+	],
+	savedMemories: [
+		"محفوظة في حسابك عند سرجي. اضغط الذكرى لرؤية نجمتها.",
+		"Saved to your Sarjy account. Select a memory to find its star.",
+	],
+	soundOff: ["صوت المكان", "Camp sounds"],
+	soundOn: ["كتم المكان", "Mute sounds"],
+	soundError: [
+		"تعذّر تشغيل صوت المكان في هذا المتصفح.",
+		"Camp sounds are unavailable in this browser.",
+	],
+	latency: ["زمن الاستجابة", "Latency"],
+	latencyTitle: ["مراحل الاستجابة", "Response waterfall"],
+	latencyNote: ["قياسات آخر رد صوتي.", "Measured on your last voice turn."],
+	latencyEmpty: [
+		"كلّم سرجي عشان تظهر القياسات.",
+		"Talk to Sarjy to see the timings.",
+	],
+	sceneControls: ["خلف الكواليس", "Behind the scene"],
+	mockNote: [
+		"محاكاة فقط: لا يُسجّل صوتك ولا تُرسل بياناتك. الردود والذكريات تجريبية.",
+		"Simulated demo. No audio is recorded or data sent. Replies and memories are fixtures.",
+	],
+	timeOfDay: ["وقت المشهد", "TIME OF DAY"],
+	stateLabel: ["حالة سرجي", "SARJY STATE"],
+	addMemory: ["✦ أضف نجمة", "+ Form a memory star"],
+	replay: ["↻ شغّل التجربة كاملة", "↻ Replay the full experience"],
+	retry: ["حاول مجددًا", "Try again"],
+	reload: ["حدّث الصفحة", "Refresh"],
+	welcomeTitle: ["وش نناديك؟", "What should I call you?"],
+	introTitle: ["حيّاك تحت النجوم", "A place under the stars"],
+	introLoading: [
+		"نجهّز مكانك تحت النجوم…",
+		"Preparing your place under the stars…",
+	],
+	introReady: ["المكان مكانك", "Make yourself at home"],
+	introFailed: [
+		"ما اكتمل تحميل المشهد. جرّب مرة ثانية.",
+		"The scene couldn't finish loading. Try again.",
+	],
+	welcomeEyebrow: ["أقرب شوي للنجوم", "A LITTLE CLOSER TO THE STARS"],
+	welcomeBody: [
+		"أنا سرجي. هنا، لحكاياتك مكان في السماء.",
+		"I’m Sarjy. There’s a place for your stories in this sky.",
+	],
+	yourName: ["اسمك", "Your name"],
+	enter: ["ندخل تحت النجوم ←", "Step into the night →"],
+	firstVisit: ["نحفظ اسمك في هذا الجهاز.", "Your name is kept on this device."],
+	welcomeFailed: [
+		"صار خطأ، جرّب مرة ثانية.",
+		"Something went wrong, try again.",
+	],
+	idle: ["جاهز متى ما ودّك", "HERE WHEN YOU’RE READY"],
+	listening: ["أسمعك…", "LISTENING…"],
+	thinking: ["لحظة، أفكّر…", "A LITTLE THOUGHT…"],
+	speaking: ["سرجي يتحدث", "SARJY IS SPEAKING"],
+	"memory-learned": ["ذكرى جديدة في سمائك", "A NEW MEMORY IN YOUR SKY"],
+	error: ["نحتاج لحظة", "LET’S TRY AGAIN"],
+	micIdle: ["دق على سرجي", "Start call"],
+	callSarjy: ["سولف مع سرجي", "Talk"],
+	mute: ["كتم المايك", "Mute"],
+	unmute: ["فتح المايك", "Unmute"],
+	muted: ["المايك مكتوم", "Microphone muted"],
+	mutedNote: [
+		"سرجي ما يسمعك لين تفتح المايك",
+		"Unmute when you’re ready to talk",
+	],
+	talkNote: [
+		"سولف براحتك، وتقدر تقاطع سرجي",
+		"Just talk. You can interrupt Sarjy.",
+	],
+	openingMic: ["نفتح المايك…", "Opening microphone…"],
+	micPermissionNote: [
+		"إذا طلب المتصفح إذن المايك، اختر سماح",
+		"Choose Allow if your browser asks for microphone access",
+	],
+	reconnecting: ["انقطع الاتصال، نرجع نتصل…", "Connection lost. Reconnecting…"],
+	cancelCall: ["إلغاء الاتصال", "Cancel call"],
+	micActive: ["المايك مفتوح · اضغط للكتم", "Mic on · tap to mute"],
+	micMuted: ["المايك مكتوم · اضغط لفتحه", "Mic muted · tap to unmute"],
+	connecting: ["نجهّز الاتصال…", "Connecting…"],
+	preparing: ["سرجي يتجهّز…", "Sarjy is getting ready…"],
+	walking: ["سرجي جايك…", "Sarjy is coming over…"],
+	sitting: ["سرجي ياخذ مكانه…", "Sarjy is taking a seat…"],
+	callNote: [
+		"سرجي يبدأ بالسلام، وبعدها سولف على راحتك",
+		"Sarjy says hi first, then just talk",
+	],
+	callEnded: ["انتهت المكالمة", "Call ended"],
+	prepareTimeout: [
+		"طوّل الاتصال. ألغِ المكالمة وجرّب من جديد",
+		"Taking too long. Cancel the call and try again.",
+	],
+	resumeAudio: [
+		"المتصفح يمنع تشغيل الصوت، اضغط هنا عشان تسمع سرجي",
+		"Your browser is blocking audio playback, tap here to hear Sarjy",
+	],
+	endCall: ["إنهاء المكالمة", "End call"],
+	learned: [
+		"✦ حفظت ذكراك. نجمة جديدة لك.",
+		"✦ Remembered. A new star in your sky.",
+	],
+	memoryLabel: ["ذكريات في السماء", "memories in the sky"],
+	greeting: ["حيّاك،", "Hello,"],
+	friend: ["يا صديقي", "friend"],
+	starLabel: ["ذكرى", "Memory"],
+	microphone: ["الميكروفون", "Microphone"],
+	defaultMic: ["الميكروفون الافتراضي", "Default microphone"],
+	preferredMic: ["الميكروفون المفضل", "Preferred microphone"],
+	inputLevel: ["مستوى الصوت", "Input level"],
+	voiceControls: ["التحكم بالمكالمة", "Voice controls"],
+	switchLanguage: ["Switch to English", "التحويل إلى العربية"],
+	languageButton: ["EN", "عربي"],
+} satisfies Record<string, readonly [string, string]>;
+
+export type StringKey = keyof typeof STRINGS;
+
+export const translate = (lang: Lang) => (key: StringKey) =>
+	STRINGS[key][lang === "ar" ? 0 : 1];
+
+export type ErrorKey =
+	| ErrorCode
+	| "mic_denied"
+	| "load_failed"
+	| "preview"
+	| "connect_failed";
+
+export type Retry = "mic" | "resend" | "reload" | null;
+
+export const ERRORS: Record<ErrorKey, [ar: string, en: string, retry: Retry]> =
+	{
+		rate_limited: [
+			"على هونك، جرّب بعد دقيقة.",
+			"Slow down, try again in a minute.",
+			null,
+		],
+		session_expired: ["انتهت الجلسة.", "Your session ended.", "reload"],
+		stt_failed: [
+			"ما سمعتك زين، عيد لو سمحت.",
+			"Didn't catch that, please say it again.",
+			null,
+		],
+		llm_failed: ["ما قدرت أرد هالمرة.", "Couldn't answer that one.", "resend"],
+		tts_failed: [
+			"الصوت ما اشتغل، الرد مكتوب.",
+			"Voice failed, the reply is shown as text.",
+			null,
+		],
+		memory_failed: [
+			"الذاكرة ما اشتغلت هالمرة، بس نقدر نكمل كلامنا.",
+			"Memory is unavailable this time, but we can keep talking.",
+			null,
+		],
+		bad_message: ["صار خطأ.", "Something went wrong.", "reload"],
+		mic_idle: [
+			"سكّرت المكالمة بعد دقيقة هدوء.",
+			"I ended the call after a quiet minute.",
+			"mic",
+		],
+		mic_denied: [
+			"المايك مقفل. افتح إعدادات الموقع بجانب العنوان واسمح بالمايك، ثم حاول مجددًا.",
+			"Mic blocked. Open the site settings beside the address, allow microphone access, then try again.",
+			"mic",
+		],
+		load_failed: ["ما قدرنا نحمّل الصفحة.", "Couldn't load the page.", "reload"],
+		preview: ["تعذّر إكمال الرد.", "The reply could not finish.", "mic"],
+		connect_failed: [
+			"ما قدرنا نتصل. تأكد من الاتصال وحاول مرة ثانية.",
+			"Couldn't connect. Check your connection and try again.",
+			"mic",
+		],
+	};

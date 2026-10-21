@@ -1,0 +1,8 @@
+node_modules
+dist
+.env
+tmp
+docs
+bench/clips
+.git
+test

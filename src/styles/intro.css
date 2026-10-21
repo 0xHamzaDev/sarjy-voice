@@ -1,0 +1,88 @@
+#welcome {
+	position: fixed;
+	inset: 0;
+	width: 100%;
+	max-width: none;
+	height: 100%;
+	max-height: none;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	box-shadow: none;
+	overflow: hidden;
+	z-index: 20;
+}
+#welcome[open] {
+	display: grid;
+	place-items: center;
+}
+#welcome::backdrop {
+	background: transparent;
+}
+.intro-veil {
+	position: absolute;
+	inset: 0;
+	background: var(--sky);
+}
+.intro-screen {
+	position: relative;
+	display: grid;
+	grid-template-columns: minmax(0, 410px);
+	justify-content: center;
+	align-content: safe center;
+	width: 100%;
+	height: 100%;
+	padding: 32px clamp(24px, 6vw, 64px);
+	overflow-y: auto;
+	overscroll-behavior: contain;
+}
+.intro-screen h2 {
+	min-height: 44px;
+}
+.intro-screen > p {
+	margin-block: 12px 20px;
+}
+.intro-content {
+	display: grid;
+}
+.intro-status,
+#name-form {
+	grid-area: 1 / 1;
+}
+#name-form[aria-hidden="true"] {
+	visibility: hidden;
+}
+.intro-status {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 20px;
+}
+.intro-stars {
+	color: var(--accent);
+	font: 24px var(--pixel);
+}
+.intro-loading-line {
+	width: 96px;
+	height: 2px;
+	background: var(--accent);
+	transform-origin: center;
+	animation: intro-loading 1.4s ease-in-out infinite alternate;
+}
+.intro-mic {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+#welcome[data-stage="leaving"] .intro-loading-line {
+	animation: none;
+}
+@keyframes intro-loading {
+	from { opacity: 0.35; transform: scaleX(0.4); }
+	to { opacity: 0.9; transform: scaleX(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+	.intro-loading-line { animation: none; }
+}
